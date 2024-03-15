@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Selector </title>
+
+    <style>
+        /* Pseudo Element Selector */
+        .container::before {
+            content: "ini pseudo element ";
+            display: block;
+            background-color: lightblue;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Adjacent Sibling Selector */
+        h2+p {
+            color: rgb(190, 222, 8);
+        }
+
+        /* General Sibling Selector */
+        h2~p {
+            font-style: italic;
+            color:blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Pseudo Element Selector -->
+    </div>
+    <h1>This is Heading One</h1>
+    <p>This is paragraph One</p>
+
+    <hr>
+
+    <h2>This is Heading Two</h2>
+    <p>This is paragraph Two</p>
+
+    <hr>
+
+    <h3>This is Heading Three</h3>
+    <p class="success">Proses Registrasi Berhasil</p>
+
+    <hr>
+
+    <h4>This is Heading Four</h4>
+    <p>Proses Registrasi Gagal</p>
+
+    <hr>
+
+    <a>Link Non Aktif</a>
+    <a href="https://example.com/" target="_blank">Klik di sini</a>
+
+    <hr>
+</body>
+
+</html>

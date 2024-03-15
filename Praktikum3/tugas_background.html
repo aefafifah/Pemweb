@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Background</title>
+    <style>
+        <!-- /* Background Warna */ -->
+        .background-color {
+            background-color: #7a126c;
+            padding: 5px;
+            text-align: center;
+        }
+
+        <!-- /* Background Gambar */ -->
+        .background-image {
+            background-image: url('assets/palestin.jpg');
+            background-size: cover;
+            padding: 70px;
+            text-align: center;
+            font-size: 20px;
+            height: 700px;
+        }
+        <!-- /* Background campuran */ -->
+        .background-blend {
+            padding: 50px;
+            text-align: center;
+            background-image: url('assets/strawberries.jpg'), url('assets/palestin.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            font-size:20px;
+        }
+        
+        /* Styling untuk teks */
+        .background-color {
+            color: #f2e9e9;
+            font-style: oblique;
+        }
+        .background-blend{
+            color: lightcyan;
+        }
+        .background-image{
+            color:#f2e9e9;
+            font-style: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Warna -->
+    <div class="background-color">
+        <h1 class="warna">Background Warna</h1>
+        <p>Ini warna ungu untuk background </p>
+        <p>dengan ukuran padding 5px </p>
+    </div>
+
+    <!-- Background Gambar -->
+    <div class="background-image">
+        <h1 class ="img">Save Palestina</h1>
+        <p>ini gambar palestin untuk background</p>
+        <p>jangan lupa boycot produk-produk israel ya! soalnya saudara kita disakiti sama mereka </p>
+        <p>setidaknya hal itu yang bikin saham untuk kekuatan mereka menurun</p>
+        <p>inget pepatah sedikit-dikit lama lama jadi bukit</p>
+    </div>
+
+    <!-- Background Campuran -->
+    <div class="background-blend">
+        <h1>Background Campuran</h1>
+        <p>ini corak background strawberry yang dicampur sama corak background palestina </p>
+    </div>
+</body>
+</html>
