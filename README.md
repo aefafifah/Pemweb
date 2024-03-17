@@ -1,2 +1,2 @@
 # Pengenalan-HTML
-Praktikum Modul 1 Pemrograman Web Informatika Tel-U Surabaya
+Praktikum Pemrograman Web Semester 4 Program Studi Informatika Tel-U Surabaya
