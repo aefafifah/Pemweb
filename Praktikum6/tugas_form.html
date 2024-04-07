@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tugas Form Validation</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .error {
+            color: red;
+            width: 300px;
+            text-align: center;
+            padding: 2px 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form id="formKu" name="formKu" method="get" action="proses.php">
+        <p>
+            Nama: <input type="text" name="nama" id="nama" />
+            <span id="namaSpan"></span>
+        </p>
+        <p>
+            Username: <input type="text" name="username" id="username" />
+            <span id="usernameSpan"></span>
+        </p>
+        <p>
+            Email: <input type="text" name="email" id="email" />
+            <span id="emailSpan"></span>
+        </p>
+        <p>
+            Password: <input type="password" name="pass" id="pass" />
+            <span id="passSpan"></span>
+        </p>
+        <p>
+            Konfirmasi Password:
+            <input type="password" name="konfPass" id="konfPass" /><span id="konfPassSpan"></span>
+        </p>
+        <p>
+            No Telp: <input type="text" name="phone" id="phone" />
+            <span id="phoneSpan"></span>
+        </p>
+        <p>
+            Jenis Kelamin:
+            <input type="radio" name="jenisKelamin" id="jenisKelaminPria" value="Laki-Laki"> Pria
+            <input type="radio" name="jenisKelamin" id="jenisKelaminWanita" value="Perempuan"> Wanita
+            <span id="jenisKelaminSpan"></span>
+        </p>
+        <p>
+            Alamat Website: <input type="text" name="website" id="website" />
+            <span id="websiteSpan"></span>
+        </p>
+        <p class = "checkbox-wrapper">
+            <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br> -->
+            <input type="checkbox" name="syarat" id="syarat" /> Saya menyetujui
+            syarat dan ketentuan<span id="syaratSpan"></span>
+        </p>
+        <p>
+            <input type="submit" name="submit" id="submit" value="Kirim Data" />
+        </p>
+    </form>
+    <script>
+        let formKuNode = document.getElementById("formKu");
+
+        let namaNode = document.getElementById("nama");
+        let namaSpanNode = document.getElementById("namaSpan");
+
+        let usernameNode = document.getElementById("username");
+        let usernameSpanNode = document.getElementById("usernameSpan");
+
+        let passNode = document.getElementById("pass");
+        let passSpanNode = document.getElementById("passSpan");
+
+        let konfPassNode = document.getElementById("konfPass");
+        let konfPassSpanNode = document.getElementById("konfPassSpan");
+
+        let emailNode = document.getElementById("email");
+        let emailSpanNode = document.getElementById("emailSpan");
+
+        let phoneNode = document.getElementById("phone");
+        let phoneSpanNode = document.getElementById("phoneSpan");
+
+        let websiteNode = document.getElementById("website");
+        let websiteSpanNode = document.getElementById("websiteSpan");
+
+        let jenisKelaminPriaNode = document.getElementById("jenisKelaminPria");
+        let jenisKelaminWanitaNode = document.getElementById("jenisKelaminWanita");
+        let jenisKelaminSpanNode = document.getElementById("jenisKelaminSpan");
+
+        let syaratNode = document.getElementById("syarat");
+        let syaratSpanNode = document.getElementById("syaratSpan");
+
+        const diProses = (e) => {
+            //===== Validasi Nama ==== //
+            let namaError = "";
+            if (namaNode.value.trim() === "") {
+                namaError = "Nama harus diisi";
+            }
+
+            if (namaError !== "") {
+                namaSpanNode.innerHTML = namaError;
+                namaSpanNode.className = "error";
+                namaNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Username ==== //
+            let usernameError = "";
+            if (usernameNode.value.trim() === "") {
+                usernameError = "Username harus diisi";
+            } else if (/\W/.test(usernameNode.value.trim())) {
+                usernameError = "Hanya bisa diisi karakter alfanumerik";
+            } else if (usernameNode.value.trim().length < 6) {
+                usernameError = "Username minimal 6 karakter";
+            }
+
+            if (usernameError !== "") {
+                usernameSpanNode.innerHTML = usernameError;
+                usernameSpanNode.className = "error";
+                usernameNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Password ==== //
+            let passError = "";
+            if (passNode.value.trim() === "") {
+                passError = "Password harus diisi";
+            } else if (passNode.value.trim().length < 6) {
+                passError = "Password minimal 6 karakter";
+            }
+
+            if (passError !== "") {
+                passSpanNode.innerHTML = passError;
+                passSpanNode.className = "error";
+                passNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Email ==== //
+            let emailError = "";
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailNode.value.trim() === "") {
+                emailError = "Email harus diisi";
+            } else if (!emailPattern.test(emailNode.value.trim())) {
+                emailError = "Email tidak valid";
+            }
+
+            if (emailError !== "") {
+                emailSpanNode.innerHTML = emailError;
+                emailSpanNode.className = "error";
+                emailNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Nomor Telepon ==== //
+            let phoneError = "";
+            const phonePattern = /^\d{10,}$/;
+            if (phoneNode.value.trim() === "") {
+                phoneError = "Nomor telepon harus diisi";
+            } else if (!phonePattern.test(phoneNode.value.trim())) {
+                phoneError = "Nomor telepon tidak valid";
+            }
+
+            if (phoneError !== "") {
+                phoneSpanNode.innerHTML = phoneError;
+                phoneSpanNode.className = "error";
+                phoneNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Alamat Website ==== //
+            let websiteError = "";
+            const websitePattern = /^(http|https):\/\/[^ "]+$/;
+            if (websiteNode.value.trim() === "") {
+                websiteError = "Alamat website harus diisi";
+            } else if (!websitePattern.test(websiteNode.value.trim())) {
+                websiteError = "Alamat website tidak valid";
+            }
+
+            if (websiteError !== "") {
+                websiteSpanNode.innerHTML = websiteError;
+                websiteSpanNode.className = "error";
+                websiteNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Jenis Kelamin ==== //
+            let jenisKelaminError = "";
+            if (!jenisKelaminPriaNode.checked && !jenisKelaminWanitaNode.checked) {
+                jenisKelaminError = "Jenis kelamin harus dipilih";
+            }
+
+            if (jenisKelaminError !== "") {
+                jenisKelaminSpanNode.innerHTML = jenisKelaminError;
+                jenisKelaminSpanNode.className = "error";
+                e.preventDefault();
+            }
+
+            //===== Validasi Konfirmasi Password ==== //
+            let konfPassError = "";
+            if (konfPassNode.value.trim() === "") {
+                konfPassError = "Konfirmasi Password harus diisi";
+            } else if (konfPassNode.value.trim().length < 6) {
+                konfPassError = "Konfirmasi Password minimal 6 karakter";
+            } else if (konfPassNode.value !== passNode.value) {
+                konfPassError = "Konfirmasi Password tidak sesuai dengan Password";
+            }
+
+            if (konfPassError !== "") {
+                konfPassSpanNode.innerHTML = konfPassError;
+                konfPassSpanNode.className = "error";
+                konfPassNode.style.border = "2px solid red";
+                e.preventDefault();
+            }
+
+            //===== Validasi Checkbox Syarat ==== //
+            let syaratError = "";
+            if (!syaratNode.checked) {
+                syaratError = "Syarat dan ketentuan harus disetujui";
+            }
+
+            if (syaratError !== "") {
+                syaratSpanNode.innerHTML = syaratError;
+                syaratSpanNode.className = "error";
+                e.preventDefault();
+            }
+        };
+
+        const hapusError = (e) => {
+            e.target.style.border = "";
+            e.target.parentElement.lastElementChild.innerHTML = "";
+        };
+
+        formKuNode.addEventListener("submit", diProses);
+        namaNode.addEventListener("focus", hapusError);
+        usernameNode.addEventListener("focus", hapusError);
+        passNode.addEventListener("focus", hapusError);
+        konfPassNode.addEventListener("focus", hapusError);
+        emailNode.addEventListener("focus", hapusError);
+        phoneNode.addEventListener("focus", hapusError);
+        websiteNode.addEventListener("focus", hapusError);
+        jenisKelaminPriaNode.addEventListener("change", hapusError);
+        jenisKelaminWanitaNode.addEventListener("change", hapusError);
+        syaratNode.addEventListener("focus", hapusError);
+    </script>
+</body>
+
+</html>
