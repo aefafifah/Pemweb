@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP DASAR </title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #812aa7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #2b0f2b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Praktikum 7</h1>
+    <p>PHP DASAR</p>
+
+    <button class="button" onclick="openPhpFile('hello.php')">hello.php</button>
+    <button class="button" onclick="openPhpFile('html_php.php')">html_php.php</button>
+    <button class="button" onclick="openPhpFile('basic_php.php')">basic_php.php</button>
+    <button class="button" onclick="openPhpFile('variabel_const.php')">variabel_const.php</button>
+    <button class="button" onclick="openPhpFile('data_type.php')">data_type.php</button>
+    <button class="button" onclick="openPhpFile('file_operator.php')">file_operator.php</button>
+    <button class="button" onclick="openPhpFile('control_structure.php')">control_structure.php</button>
+    <button class="button" onclick="openPhpFile('user_defined_function.php')">user_defined_function.php</button>
+    <button class="button" onclick="openPhpFile('php_function.php')">php_function.php</button>
+</body>
+<script>
+    function openPhpFile(filename) {
+      window.open(filename);
+    }
+  </script>
+</html>
